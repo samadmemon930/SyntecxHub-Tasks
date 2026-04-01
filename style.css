@@ -1,0 +1,140 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #c7d2fe, #e2e8f0);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+  color: black;
+}
+
+/* Grid */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  padding: 30px;
+}
+
+/* Card */
+.image-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  cursor: pointer;
+  height: 250px;
+
+  /* 🔥 Visible Shadow */
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    0 2px 6px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover Card */
+.image-box:hover {
+  transform: translateY(-8px);
+
+  /* 🔥 Strong Shadow on Hover */
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Image */
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  transition: all 0.5s ease;
+  filter: brightness(95%) contrast(105%);
+}
+
+/* Hover Image */
+.image-box:hover img {
+  transform: scale(1.08);
+  filter: brightness(80%) contrast(110%);
+}
+
+/* Caption */
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  width: 100%;
+  padding: 0 10px;
+
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+/* Show Caption */
+.image-box:hover .caption {
+  opacity: 1;
+}
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.9);
+
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Lightbox Image */
+.lightbox-img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 10px;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .title {
+    font-size: 26px;
+  }
+
+  .gallery {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .image-box {
+    height: 200px;
+  }
+}
